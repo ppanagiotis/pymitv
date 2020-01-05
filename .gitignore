@@ -107,3 +107,9 @@ ENV/
 build/
 dist/
 public
+__init__.py
+control.py
+discover.py
+navigator.py
+tv.py
+
