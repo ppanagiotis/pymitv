@@ -36,6 +36,14 @@ using any of the polyfill controls, could produce weird results.')
         # Send True regardless of whether or not command was sent
         #return True
 
+    def change_source(self, source):
+        # Check if an IP address has been supplied, if it hasn't return false.
+        if self.ip is None:
+            return False
+
+        self.source = source
+        return Control().change_source(self.ip, source)
+
     @property
     def is_on(self):
         """Returns the assumed state of the TV."""
