@@ -70,6 +70,18 @@ class Control:
         return True
 
     @staticmethod
+    def check_state(ip):
+        request_timeout = 0.1
+
+        try:
+            tv_url = 'http://{}:6095/request?action=isalive'.format(ip)
+            request = requests.get(tv_url, timeout=request_timeout)
+        except (requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError):
+            return False
+
+        return True
+
+    @staticmethod
     def get_volume(ip):
         request_timeout = 0.1
 
